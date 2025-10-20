@@ -1,6 +1,26 @@
 # DESIGN (short)
 
-Maqsad:
+server.js → Express server exposing /invoice, /pay, /metrics endpoints.
+
+lightspark_integrator.js → Handles invoice creation, payment retries, AEAD encryption, and channel allocation.
+
+lightspark_client_mock.js → Simulates Lightspark SDK for offline/testnet payments and channels.
+
+channel_manager.js → Manages simulated LN channel liquidity and force-close scenarios.
+
+crypto_aead.js → Provides AES-256-GCM encryption/decryption for secure memos.
+
+retry.js → Generic retry/backoff wrapper using p-retry.
+
+semaphore.js → Limits concurrency for in-flight payments.
+
+logger.js → Structured logging using pino.
+
+metrics.js → Prometheus counters/histograms for payment success, failure, latency.
+
+tests/integration.test.js → Manual integration instructions and placeholders for tests.
+
+Maksad:
 - Non-custodial LN payments demo: invoice create, pay with routing retries, channel simulate.
 - Secure: AES-GCM se memos/keys encrypt.
 - Reliable: retries, timeouts, concurrency limit (10), metrics.

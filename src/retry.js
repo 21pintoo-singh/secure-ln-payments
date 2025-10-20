@@ -1,3 +1,14 @@
+/*
+  Provides generic retry logic for async functions.
+  Responsibilities:
+  - withRetry(fn, opts): Retries a function with exponential backoff
+      * retries: number of attempts
+      * minTimeout: initial delay
+      * factor: multiplier for backoff
+  - Uses p-retry package
+  - Used by LightsparkIntegrator to retry payments on transient failures
+*/
+
 import pRetry from 'p-retry';
 
 export async function withRetry(fn, opts = {}) {

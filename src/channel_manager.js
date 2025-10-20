@@ -1,3 +1,13 @@
+/*
+  Manages simulated LN channels & liquidity.
+  Responsibilities:
+  - Tracks total available liquidity
+  - Opens channels if minimum capacity not met
+  - Allocates & releases liquidity for payments
+  - Simulates force-close events
+  - Logs all actions for observability
+*/
+
 import logger from './logger.js';
 import LightsparkClientMock from './lightspark_client_mock.js';
 

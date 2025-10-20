@@ -1,3 +1,15 @@
+/*
+  Main Express server file.
+  Responsibilities:
+  - Sets up HTTP server with security (helmet), body parsing (body-parser), and rate limiting (express-rate-limit)
+  - Exposes 3 endpoints:
+      POST /invoice → Create a Lightning invoice
+      POST /pay → Pay a given invoice with retries and optional induced failure
+      GET /metrics → Expose Prometheus metrics for success/failure/latency
+  - Handles graceful shutdown on SIGINT/SIGTERM
+  - Uses LightsparkIntegrator class for actual payment/invoice logic
+*/
+
 import express from 'express';
 import rateLimit from 'express-rate-limit';
 import bodyParser from 'body-parser';

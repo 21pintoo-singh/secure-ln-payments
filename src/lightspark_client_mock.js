@@ -1,3 +1,13 @@
+/*
+  Mock client to simulate Lightspark SDK behavior on testnet.
+  Responsibilities:
+  - createInvoice: Generate a fake BOLT-11 invoice string
+  - payInvoice: Simulate payment with optional induced failures
+  - openChannel / closeChannel: Simulate channel liquidity management
+  - sleep(ms): Simulate network latency
+  - Provides predictable responses for testing without real LN nodes
+*/
+
 import { v4 as uuidv4 } from 'uuid';
 import logger from './logger.js';
 

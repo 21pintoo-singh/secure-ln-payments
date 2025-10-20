@@ -1,3 +1,11 @@
+/*
+  Limits concurrency for async operations.
+  Responsibilities:
+  - Provides a 'limit' wrapper that restricts number of concurrent promises
+  - Ensures max N payments are in-flight at the same time
+  - Used by LightsparkIntegrator.payInvoice() for safe concurrency
+*/
+
 // Simple semaphore / concurrency limiter
 export function limit(fn, maxConcurrent = 10) {
   let activeCount = 0;

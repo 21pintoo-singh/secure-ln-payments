@@ -1,3 +1,12 @@
+/*
+  Provides AEAD (Authenticated Encryption with Associated Data) functions.
+  Responsibilities:
+  - generateKey(): Generate a secure random 256-bit key
+  - aeadEncrypt(key, plaintext, aad): Encrypt a message with AES-256-GCM
+  - aeadDecrypt(key, ciphertextB64, aad): Decrypt AEAD-encrypted message
+  - Used to encrypt sensitive memos & keys in invoices
+*/
+
 import { randomBytes, createCipheriv, createDecipheriv } from 'crypto';
 
 const KEY_LEN = 32; // 256-bit key

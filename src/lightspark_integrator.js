@@ -1,3 +1,17 @@
+/*
+  Main integration class for Lightspark LN SDK.
+  Responsibilities:
+  - Wraps a client (mock or real) for Lightning Network operations
+  - Creates BOLT-11 invoices
+      * Encrypts memo using AEAD for privacy
+  - Pays invoices
+      * Allocates liquidity via ChannelManager
+      * Uses semaphore for concurrency control
+      * Retries payments with exponential backoff
+      * Observes latency & increments Prometheus metrics
+  - Manages AEAD key for secure data
+*/
+
 import { decode } from 'bolt11';
 import LightsparkClientMock from './lightspark_client_mock.js';
 import { generateKey, aeadEncrypt, aeadDecrypt } from './crypto_aead.js';

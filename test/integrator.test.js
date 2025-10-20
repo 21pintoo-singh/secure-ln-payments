@@ -1,3 +1,11 @@
+/*
+  Jest test file (mostly placeholder/manual instructions)
+  Responsibilities:
+  - Provides steps to manually test invoice creation & payment
+  - Example curl commands to interact with server
+  - Confirms integration works with simulated failures
+*/
+
 import { test, expect } from '@jest/globals';
 
 // High-level manual integration test instructions

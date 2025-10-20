@@ -1,3 +1,14 @@
+/*
+  Prometheus client & custom metrics.
+  Responsibilities:
+  - Tracks payment success, failure, and latency
+  - Exports counters & histograms:
+      * paymentSuccess → increments on successful payments
+      * paymentFailure → increments on failed payments
+      * paymentLatency → observes latency in seconds
+  - Used by /metrics endpoint in server.js
+*/  
+
 import client from 'prom-client';
 
 export const paymentSuccess = new client.Counter({
