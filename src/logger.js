@@ -1,8 +1,14 @@
-const pino = require('pino');
+import pino from 'pino';
+
 const logger = pino({
   level: process.env.LOG_LEVEL || 'info',
   formatters: {
     level(label) { return { level: label }; }
   }
 });
-module.exports = logger;
+
+// named exports for ESM style
+export const info = logger.info.bind(logger);
+export const error = logger.error.bind(logger);
+export const warn = logger.warn.bind(logger);
+export default logger;
