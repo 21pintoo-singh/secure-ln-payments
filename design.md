@@ -20,7 +20,7 @@ metrics.js → Prometheus counters/histograms for payment success, failure, late
 
 tests/integration.test.js → Manual integration instructions and placeholders for tests.
 
-Maksad:
+output:
 - Non-custodial LN payments demo: invoice create, pay with routing retries, channel simulate.
 - Secure: AES-GCM se memos/keys encrypt.
 - Reliable: retries, timeouts, concurrency limit (10), metrics.
